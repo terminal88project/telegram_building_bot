@@ -17,7 +17,6 @@ def get_resident_menu():
     keyboard = [
         [
             InlineKeyboardButton("📊 وضعیت من", callback_data="res_status"),
-            # This button can be linked to a handler later if needed
             InlineKeyboardButton("🏢 وضعیت ساختمان", callback_data="res_building_info") 
         ],
         [
@@ -29,7 +28,8 @@ def get_resident_menu():
 
 def get_admin_menu():
     """
-    Admin main menu (8 buttons)
+    Admin main menu (9 buttons)
+    Added: Archive Reports button
     """
     keyboard = [
         [
@@ -41,11 +41,14 @@ def get_admin_menu():
             InlineKeyboardButton("📨 مدیریت پیام‌ها", callback_data="adm_message_menu")
         ],
         [
-            InlineKeyboardButton("📉 گزارش‌گیری (اکسل)", callback_data="adm_reports"),
-            InlineKeyboardButton("💰 مانده حساب", callback_data="adm_balance_summary")
+            InlineKeyboardButton("📉 گزارش‌گیری", callback_data="adm_reports"),
+            InlineKeyboardButton("📁 آرشیو گزارش‌ها", callback_data="arch_reports")  # <--- دکمه جدید
         ],
         [
-            InlineKeyboardButton("⚙️ تنظیمات سیستم", callback_data="adm_settings"),
+            InlineKeyboardButton("💰 خلاصه صندوق", callback_data="adm_balance_summary"),
+            InlineKeyboardButton("⚙️ تنظیمات سیستم", callback_data="adm_settings")
+        ],
+        [
             InlineKeyboardButton("👤 نمای ساکن", callback_data="adm_view_as_resident")
         ]
     ]
