@@ -19,9 +19,9 @@ env/
 *.sqlite3
 
 # Media Files (User uploads)
-media/
-media/receipts/
-media/expenses/
+#media/
+#media/receipts/
+#media/expenses/
 
 # Reports
 report.xlsx
