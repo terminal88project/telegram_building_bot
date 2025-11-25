@@ -11,6 +11,7 @@ try:
 except ImportError:
     ADMIN_ID = None
 
+
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """
     Smart Entry Point:
@@ -44,6 +45,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 reply_markup=markup, 
                 parse_mode="Markdown"
             )
+
 
     db_gen = get_db()
     db: Session = next(db_gen)

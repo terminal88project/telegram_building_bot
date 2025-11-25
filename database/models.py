@@ -3,6 +3,7 @@ from sqlalchemy.orm import relationship
 from datetime import datetime
 from database.core import Base
 
+
 class User(Base):
     __tablename__ = "users"
 
@@ -16,9 +17,9 @@ class User(Base):
     role = Column(String, default="resident")
     
     # Balance Logic:
-    #   0  : Settled (Bi-hesab)
-    #  > 0 : Credit (Bestankar / Ezafe Pardakht)
-    #  < 0 : Debt (Bedehkar / Pardakht Nashode)
+    #   0  : Settled
+    #  > 0 : Credit (Bestankar)
+    #  < 0 : Debt (Bedehkar)
     balance = Column(BigInteger, default=0)
 
     # Relationship to transactions
@@ -32,10 +33,9 @@ class Transaction(Base):
     __tablename__ = "transactions"
 
     id = Column(Integer, primary_key=True, index=True)
-    user_id = Column(Integer, ForeignKey("users.id"), nullable=True) 
-    # user_id is Nullable because some expenses (like 'expense' or 'initial') 
-    # are general building records, not linked to a specific user debt.
-    
+    user_id = Column(Integer, ForeignKey("users.id"), nullable=True)
+    # user_id nullable for building-level records (expense, initial, ...)
+
     # Types:
     # 1. 'payment': Resident pays money (Increases User Balance)
     # 2. 'charge': Monthly automatic charge (Decreases User Balance)
@@ -76,3 +76,28 @@ class BotSetting(Base):
 
     def __repr__(self):
         return f"<Setting({self.key}={self.value})>"
+
+
+class ReportArchive(Base):
+    """
+    Archive of monthly reports (Excel & PDF paths per month).
+    Used so admin can download previous months' reports.
+    """
+    __tablename__ = "report_archive"
+
+    id = Column(Integer, primary_key=True, index=True)
+
+    # Jalali month like "1404/09"
+    jalali_month = Column(String(7), unique=True, index=True, nullable=False)
+
+    # Gregorian month like "2025/11" (optional, for reference)
+    gregorian_month = Column(String(7), nullable=True)
+
+    # Stored file paths on disk
+    excel_file_path = Column(String(255), nullable=True)
+    pdf_file_path = Column(String(255), nullable=True)
+
+    created_at = Column(DateTime, default=datetime.now)
+
+    def __repr__(self):
+        return f"<ReportArchive({self.jalali_month})>"

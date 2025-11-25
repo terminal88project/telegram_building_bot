@@ -1,7 +1,19 @@
-python-telegram-bot==21.9
-SQLAlchemy==2.0.36
+# Telegram Bot Framework
+python-telegram-bot[job-queue]==21.9
+
+# Database ORM
+SQLAlchemy>=2.0.36
+
+# Environment Variables
 python-dotenv==1.0.1
+
+# Jalali (Persian) Date Helper
 jdatetime==5.0.0
 
+# Excel File Generation
+openpyxl==3.1.5
 
-
+# PDF File Generation & Persian Support
+reportlab==4.2.5
+arabic-reshaper==3.0.0
+python-bidi==0.4.2
