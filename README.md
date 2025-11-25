@@ -38,7 +38,7 @@
 git clone https://github.com/YOUR_USERNAME/telegram-building-bot.git
 cd telegram-building-bot
 
-
+text
 
 ۲. **ساخت محیط مجازی (Virtual Environment):**
 python -m venv .venv
@@ -49,12 +49,12 @@ python -m venv .venv
 در لینوکس/مک:
 source .venv/bin/activate
 
-
+text
 
 ۳. **نصب وابستگی‌ها:**
 pip install -r requirements.txt
 
-
+text
 
 ۴. **تنظیمات محیطی:**
 - فایل `.env.example` را به `.env` تغییر نام دهید.
@@ -66,7 +66,7 @@ pip install -r requirements.txt
 ۵. **اجرای ربات:**
 python main.py
 
-
+text
 
 ---
 
@@ -91,7 +91,7 @@ telegram-building-bot/
 ├── config.py # تنظیمات خواندن توکن
 └── requirements.txt # لیست کتابخانه‌ها
 
-
+text
 
 ---
 
@@ -118,23 +118,25 @@ telegram-building-bot/
    در پوشه اصلی پروژه دستور زیر را بزنید:
 docker-compose up -d
 
-
+text
 (سوییچ `-d` باعث می‌شود ربات در پس‌زمینه اجرا شود).
 
 ۳. **مشاهده لاگ‌ها:**
 برای دیدن وضعیت ربات و خطاها:
 docker-compose logs -f
 
-
+text
 
 ۴. **توقف ربات:**
 docker-compose down
+
+text
 
 ۵. **آپدیت ربات:**
 اگر تغییری در کد دادید، برای اعمال تغییرات در داکر:
 docker-compose up -d --build
 
-
+text
 
 ---
 **نکته:** دیتابیس (`building_management.db`) و پوشه `media` به صورت volume تعریف شده‌اند، بنابراین با حذف کانتینر، اطلاعات شما پاک نخواهد شد.
