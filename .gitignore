@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Docker
+.docker/
+
+# Virtual Environment
+.venv/
+venv/
+env/
+
+# Environment Variables (Secrets)
+.env
+
+# Database
+*.db
+*.sqlite3
+
+# Media Files (User uploads)
+media/
+media/receipts/
+media/expenses/
+
+# Reports
+report.xlsx
+report_full.xlsx
+
+# IDE settings
+.vscode/
+.idea/

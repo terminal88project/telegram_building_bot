@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  building-bot:
+    build: .
+    container_name: telegram_building_bot
+    restart: unless-stopped
+    # خواندن متغیرهای محیطی از فایل .env
+    env_file:
+      - .env
+    # اتصال پوشه‌های مهم به هاست (برای اینکه دیتابیس و عکس‌ها با پاک شدن کانتینر پاک نشوند)
+    volumes:
+      - ./building_management.db:/app/building_management.db
+      - ./media:/app/media
+      - ./logs:/app/logs  # اگر لاگ فایل دارید
+    # تنظیمات شبکه و تایم‌زون
+    environment:
+      - TZ=Asia/Tehran
+    
+    # محدودیت منابع (اختیاری - برای سرورهای ضعیف)
+    # deploy:
+    #   resources:
+    #     limits:
+    #       cpus: '0.50'
+    #       memory: 512M
