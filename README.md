@@ -36,8 +36,10 @@ telegram_building_bot
 
 ## 🚀 نصب و راه‌اندازی
 
-۱. **کلون کردن مخزن:**
+۱. **کلون کردن مخزن:
+**
 git clone https://github.com/YOUR_USERNAME/telegram-building-bot.git
+
 cd telegram-building-bot
 
 
