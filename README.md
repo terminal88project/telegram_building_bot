@@ -38,8 +38,7 @@ telegram_building_bot
 
 ۱. **کلون کردن مخزن:
 **
-git clone https://github.com/YOUR_USERNAME/telegram-building-bot.git
-
+git clone https://github.com/terminal88project/telegram_building_bot.git
 cd telegram-building-bot
 
 
